@@ -1,0 +1,42 @@
+services:
+  db-inventory:
+    container_name: db-inventory
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_inventory
+      POSTGRES_USER: uncledave
+      POSTGRES_PASSWORD: Test123
+    ports:
+      - 5434:5434
+    expose:
+      - 5434
+    command: -p 5434
+
+  db-orders:
+    container_name: db-orders
+    image: mysql:8.0.33
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ms_orders
+      MYSQL_USER: uncledave
+      MYSQL_PASSWORD: Test123
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+
+  bd-productos:
+    container_name: db-products
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_products
+      POSTGRES_USER: uncledave
+      POSTGRES_PASSWORD: Test123
+    ports:
+      - 5435:5435
+    expose:
+      - 5435
+    command: -p 5435
